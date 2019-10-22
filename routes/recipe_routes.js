@@ -1,0 +1,1 @@
+server.set('view engine', 'ejs');
