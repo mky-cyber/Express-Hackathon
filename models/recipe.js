@@ -21,7 +21,7 @@ const Recipe = new Schema({
     required: true
   },
   steps: {
-    type: String,
+    type: [String],
     required: true
   },
   timers: {
