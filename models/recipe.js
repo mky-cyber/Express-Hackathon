@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ingredientsDetail = new Schema({
-  
-});
-
 const Recipe = new Schema({
   name: {
     type: String,
@@ -38,3 +34,7 @@ const Recipe = new Schema({
     type: String
   }
 });
+
+
+
+module.exports = mongoose.model('Recipe', Recipe);

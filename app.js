@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const port = 3000;
-const dbConn = 'mongodb://localhost/my_store';
+const dbConn = 'mongodb://localhost/my_recipe';
 
 const app = express();
 
