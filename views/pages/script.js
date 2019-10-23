@@ -3,6 +3,7 @@ let recipesUrl = serverUrl
 
 function displayRecipes(recipes) {
     let section = document.querySelector("#recipe-list")
+    section.innerHTML = null;
     let ul = document.createElement("ul")
     section.appendChild(ul)
     for (let recipe of recipes) {
@@ -27,6 +28,38 @@ function getRecipeList() {
             })
         })
         .catch(err => console.log(err))
+}
+
+function jsonCallback(response) {
+	console.log("parsed body", response)
+	getRecipeList(response)
+}
+
+let newRecipeForm = document.getElementById("add-recipe-form")
+newRecipeForm.addEventListener("submit", postNewRecipe)
+
+function postNewRecipe(event) {
+    event.preventDefault()
+    let textField = event.target.elements[0]
+    let recipe = textField.value
+    console.log("recipe", recipe)
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            name: recipe
+        })
+    }
+    fetch(recipesUrl, options).then((response) => {
+        if (response.status !== 201) {
+            console.log("There was a problem on the server:", response.status);
+        }
+        console.log("Added recipe");
+        textField.value = "";
+        response.json().then(jsonCallback)
+    }).catch((err) => console.log(err));
 }
 
 getRecipeList()
