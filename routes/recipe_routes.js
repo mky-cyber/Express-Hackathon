@@ -13,6 +13,11 @@ router.post("/", makeRecipe);
 
 // READ
 router.get("/", getRecipes);
+// router.get("/", function (request, response) {
+//     let recipes = getRecipes();
+//     console.log(`recipes: ${recipes}`)
+//     response.render("pages/index", {dogs: recipes});
+// })
 
 router.get("/:id", getRecipe);
 
