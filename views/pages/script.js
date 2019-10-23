@@ -40,16 +40,16 @@ newRecipeForm.addEventListener("submit", postNewRecipe)
 
 function postNewRecipe(event) {
     event.preventDefault()
-    let textField = event.target.elements[0]
-    let recipe = textField.value
-    console.log("recipe", recipe)
+    let textField = event.target.elements
     let options = {
         method: "POST",
         headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
-            name: recipe
+            "name": textField[0].value,
+            "ingredients": [{"quantity": textField[1].value, "name": textField[2].value, "type": textField[3].value}],
+            "steps": [textField[4].value]
         })
     }
     fetch(recipesUrl, options).then((response) => {
