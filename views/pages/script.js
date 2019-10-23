@@ -93,6 +93,39 @@ function getRecipeList(event) {
         .catch(err => console.log(err))
 }
 
+
 document.getElementById("getAllRecipes").addEventListener("click", getRecipeList);
 
 document.getElementById("getOneRecipe").addEventListener("click", getOneRecipe);
+
+function jsonCallback(response) {
+	console.log("parsed body", response)
+	getRecipeList(response)
+}
+
+let newRecipeForm = document.getElementById("add-recipe-form")
+newRecipeForm.addEventListener("submit", postNewRecipe)
+
+function postNewRecipe(event) {
+    event.preventDefault()
+    let textField = event.target.elements[0]
+    let recipe = textField.value
+    console.log("recipe", recipe)
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            name: recipe
+        })
+    }
+    fetch(recipesUrl, options).then((response) => {
+        if (response.status !== 201) {
+            console.log("There was a problem on the server:", response.status);
+        }
+        console.log("Added recipe");
+        textField.value = "";
+        response.json().then(jsonCallback)
+    }).catch((err) => console.log(err));
+}
