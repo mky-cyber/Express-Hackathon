@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const recipeRouter = require("./routes/recipe_routes.js")
 
-const port = 3000;
+const port = 5000;
 const dbConn = 'mongodb://localhost/my_recipe';
 
 const app = express();

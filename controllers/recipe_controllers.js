@@ -29,7 +29,6 @@ const getRecipes = function (req, res) {
             });
         }
         res.send(recipes);
-        console.log("All recipes displayed");
     });
 };
 
