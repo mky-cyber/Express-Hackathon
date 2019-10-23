@@ -14,7 +14,7 @@ router.post("/", makeRecipe);
 // READ
 router.get("/", getRecipes);
 
-router.get("/:id", getRecipe);
+router.get("/random", getRecipe);
 
 // DELETE
 router.delete("/:id", removeRecipe);

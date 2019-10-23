@@ -9,7 +9,10 @@ const getAllRecipes = function (req) {
 };
 
 const getOneRecipe = function (req) {
-    return Recipe.findById(req.params.id);
+    // return Recipe.findById(req.params.id);
+    return Recipe.aggregate(
+      [{$sample: {size: 1}}]
+    );
 };
 
 const deleteRecipe = function (id) {
