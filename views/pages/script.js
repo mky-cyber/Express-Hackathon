@@ -5,6 +5,7 @@ const recipeUrl =  serverUrl + 'random';
 function displayRecipes(recipes) {
     let section = document.querySelector("#recipe-list")
     section.innerHTML = null;
+    section.classList.add("box", "has-text-white");
     let ul = document.createElement("ul")
     section.appendChild(ul)
     for (let recipe of recipes) {
@@ -16,9 +17,20 @@ function displayRecipes(recipes) {
 
 function printString(info) {
     let section = document.getElementById("one-recipe");
+    section.classList.add("box", "has-text-white");
     let para = document.createElement("p");
     section.appendChild(para);
     para.textContent = info;
+}
+
+function printImage(info) {
+    let section = document.getElementById("one-recipe");
+    section.classList.add("box", "has-text-white");
+    let img = document.createElement("img");
+    section.appendChild(img);
+    img.src = info;
+    img.classList.add("photo");
+    img.style.height='300px';
 }
 
 function printIngredients(info) {
@@ -28,21 +40,21 @@ function printIngredients(info) {
     console.log(`info: ${info}`);
     ingredients.textContent = "Ingredients:";
     for(let i = 0; i < info.length; i++) {
-        let ul = document.createElement("ul");
-        section.appendChild(ul);
-        ul.textContent = `${info[i].name}: ${info[i].quantity}`;
+        let li = document.createElement("li");
+        section.appendChild(li);
+        li.textContent = `${info[i].name}: ${info[i].quantity}`;
     }
 }
 
 function printArray(key, value) {
     let section = document.getElementById("one-recipe");
-    let keyName = document.createElement("ul");
+    let keyName = document.createElement("ol");
     section.appendChild(keyName);
     keyName.textContent = `${key}: `;
     for(let i = 0; i < value.length; i++) {
-        let ul = document.createElement("ul");
-        section.appendChild(ul);
-        ul.textContent = value[i];
+        let li = document.createElement("li");
+        keyName.appendChild(li);
+        li.textContent = value[i];
     }
 }
 
@@ -52,9 +64,7 @@ function displayOneRecipe(recipe) {
     printString(`Name: ${recipe.name}`);
     printIngredients(recipe.ingredients)
     printArray("Steps", recipe.steps);
-    printArray("Timer", recipe.timers);
-    printString(`Image: ${recipe.imageURL}`);
-    printString(`Original url: ${recipe.originalURL}`);
+    printImage(`${recipe.imageURL}`);
 }
 
 function getOneRecipe(event) {
