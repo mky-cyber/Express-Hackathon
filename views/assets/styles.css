@@ -1,16 +1,21 @@
+/* Allows background to display 100% */
+
 body, html {
     height: 100%;
     scroll-behavior: smooth;
 }
 
-.title, .subtitle {
+.subtitle {
     color: #F3FFBD;
 }
 
+/* A box for content */
 .box {
     background-color: #247BA0;
     padding: 20px 40px 20px 40px;
 }
+
+/* Parallax background effect */
 
 .bgimg-1, .bgimg-2 {
     position: relative;
@@ -33,4 +38,16 @@ body, html {
 .photo {
     border-radius: 5px;
     border: 10px solid white;
+}
+
+/* Consistent colour scheme for navbar */
+
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+      background-color: hsl(348, 100%, 61%);
+    }
+}
+
+.navbar-item {
+    color: white;
 }
