@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Gastronomy Lab</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="../assets/styles.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </head>
 
-    <body>
-        <button id = "getAllRecipes">Get All recipes</button>
-        <button id = "getOneRecipe">Get One recipe</button>
-        <div id="recipe-list"></div>
-        <div id="one-recipe"></div>
-        <p>Our index.html is working!</p>
+    <body>        
+        <section class="section bgimg-1">
+            <nav class="container level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <h1 class="title is-size-1 has-text-white">Gastronomy Lab</h1>
+                    </div>
+                </div>
+            </nav>
 
-        <form id="add-recipe-form">
-            <input type="text" name="recipe-name" />
-            <input type="text" name="ingredientName" />
-            <input type="text" name="quantity" />
-            <input type="text" name="type" />
-            <input type="text" name="steps" />
-            <input type="submit" value="Add Recipe" />
-        </form>
+            <div class="container">
+                <button class="button is-info" id="getAllRecipes">Get All Recipes</button>
+                <button class="button is-info" id="getOneRecipe">Get One Recipe</button>
+                
+                <div class="columns">
+                    <div class="column">
+                        <br><div class="food" id="recipe-list"></div>
+                    </div>
+                    <div class="column">
+                            
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="food" id="one-recipe"></div>
+                    </div>
+                    <div class="column">
+                        <form class="box" id="add-recipe-form">
+                            <h1 class="title has-text-white">Create a Recipe</h1>
+                            <label class="label has-text-white">Name</label>
+                            <input class="input" type="text" name="recipe-name" />
+                            <label class="label has-text-white">Ingredients</label>
+                            <textarea class="textarea" type="textarea" name="ingredientName"></textarea>
+                            <label class="label has-text-white">Quantity</label>
+                            <input class="input" type="text" name="quantity" />
+                            <label class="label has-text-white">Type</label>
+                            <input class="input" type="text" name="type" />
+                            <label class="label has-text-white">Steps</label>
+                            <textarea class="textarea" type="text" name="steps"></textarea>
+                            <input style="margin-top: 20px" class="button is-danger" type="submit" value="Add Recipe" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <script src="script.js"></script>
     </body>
 </html>
