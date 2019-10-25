@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One&display=swap');
+
 /* Allows background to display 100% */
 
 body, html {
@@ -5,8 +7,12 @@ body, html {
     scroll-behavior: smooth;
 }
 
-.subtitle {
-    color: #F3FFBD;
+.title {
+    font-family: 'Poiret One', cursive;
+}
+
+.food {
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* A box for content */
@@ -17,7 +23,7 @@ body, html {
 
 /* Parallax background effect */
 
-.bgimg-1, .bgimg-2 {
+.bgimg-1 {
     position: relative;
     background-attachment: fixed;
     background-position: center;
@@ -27,11 +33,6 @@ body, html {
 
 .bgimg-1 {
     background-image: url("../assets/background.jpg");
-    min-height: 100%;
-}
-
-.bgimg-2 {
-    background-image: url("../assets/background-2.jpg");
     min-height: 100%;
 }
 
