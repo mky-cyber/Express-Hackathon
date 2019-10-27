@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const recipeRouter = require("./routes/recipe_routes.js")
+const path = require('path');
 
 const port = 5000;
 const dbConn = 'mongodb://localhost/my_recipe';
@@ -23,6 +24,9 @@ mongoose.connect(dbConn, {
     }
   }
 );
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 app.use(cors());
 app.use(bodyParser.json());

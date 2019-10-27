@@ -12,7 +12,12 @@ const {
 router.post("/", makeRecipe);
 
 // READ
-router.get("/", getRecipes);
+// router.get("/", getRecipes);
+router.get("/", function(req, res) {
+    res.render(index, {
+        recipies: getRecipes
+    });
+});
 
 router.get("/random", getRecipe);
 
