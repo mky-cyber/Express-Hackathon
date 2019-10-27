@@ -31,5 +31,6 @@ app.use(bodyParser.json());
 app.use("/", recipeRouter)
 
 app.listen(port, () => {
-  console.log(`Blog app listening on port ${port}`);
+  console.log(`This fabulous Express Hackathon App is listening on port ${port}`);
+  console.log(`Check it out at http://localhost/${port}`)
 })
