@@ -5,6 +5,7 @@ const recipeUrl =  serverUrl + 'random';
 function displayRecipes(recipes) {
     let section = document.querySelector("#recipe-list")
     section.innerHTML = null;
+    section.style.display = "block";
     section.classList.add("box", "has-text-white");
     let ul = document.createElement("ul")
     section.appendChild(ul)
@@ -13,6 +14,13 @@ function displayRecipes(recipes) {
         li.textContent = recipe.name
         ul.appendChild(li)
     }
+}
+
+function hideRecipes() {
+    let elem = document.getElementById("recipe-list");
+    elem.parentNode.childNodes[2].style.display = "none";
+    console.log(elem.parentNode.childNodes);
+    return false;
 }
 
 function printString(info) {
@@ -146,4 +154,8 @@ function postNewRecipe(event) {
         textField.value = "";
         response.json().then(jsonCallback)
     }).catch((err) => console.log(err));
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 54bb760ba359785f0bedb449ede06003821ece2b
