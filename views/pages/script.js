@@ -5,6 +5,7 @@ const recipeUrl =  serverUrl + 'random';
 function displayRecipes(recipes) {
     let section = document.querySelector("#recipe-list")
     section.innerHTML = null;
+    section.style.display = "block";
     section.classList.add("box", "has-text-white");
     let ul = document.createElement("ul")
     section.appendChild(ul)
@@ -13,6 +14,13 @@ function displayRecipes(recipes) {
         li.textContent = recipe.name
         ul.appendChild(li)
     }
+}
+
+function hideRecipes() {
+    let elem = document.getElementById("recipe-list");
+    elem.parentNode.childNodes[2].style.display = "none";
+    console.log(elem.parentNode.childNodes);
+    return false;
 }
 
 function printString(info) {
@@ -139,39 +147,3 @@ function postNewRecipe(event) {
         response.json().then(jsonCallback)
     }).catch((err) => console.log(err));
 }
-
-// Hamburger menu script
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-  
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-  
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-  
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-  
-        });
-      });
-    }
-
-});
-
-// Close navbar when a navbar-item has been clicked
-
-const navbarMenu = document.getElementById('navbarBasicExample');
-
-navbarMenu.addEventListener('click', () => {
-  navbarMenu.classList.remove('is-active');
-});

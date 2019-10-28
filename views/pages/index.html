@@ -19,8 +19,9 @@
                 <button class="button is-info" id="getOneRecipe">Get One Recipe</button>
                 
                 <div class="columns">
-                    <div class="column is-half">
+                    <div class="column is-half" id="recipe-collection">
                         <br><div class="food" id="recipe-list"></div>
+                        <button class="button is-danger" onclick="hideRecipes()">Hide</button>
                     </div>
                 </div>
                 <div class="columns">
@@ -36,8 +37,6 @@
                             <textarea class="textarea" type="textarea" name="ingredientName"></textarea>
                             <label class="label has-text-white">Quantity</label>
                             <input class="input" type="text" name="quantity" />
-                            <label class="label has-text-white">Type</label>
-                            <input class="input" type="text" name="type" />
                             <label class="label has-text-white">Steps</label>
                             <textarea class="textarea" type="text" name="steps"></textarea>
                             <input style="margin-top: 20px" class="button is-danger" type="submit" value="Add Recipe" />
