@@ -116,6 +116,14 @@ document.getElementById("getAllRecipes").addEventListener("click", getRecipeList
 
 document.getElementById("getOneRecipe").addEventListener("click", getOneRecipe);
 
+if(window.addEventListener) {
+    window.addEventListener('load',getOneRecipe,false); //W3C
+} else {
+    window.attachEvent('onload',getOneRecipe); //IE
+}
+
+// document.getElementById("getOneRecipe").addEventListener("load", getOneRecipe);
+
 function jsonCallback(response) {
 	console.log("parsed body", response)
 	getRecipeList(response)
@@ -146,4 +154,8 @@ function postNewRecipe(event) {
         textField.value = "";
         response.json().then(jsonCallback)
     }).catch((err) => console.log(err));
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 54bb760ba359785f0bedb449ede06003821ece2b
